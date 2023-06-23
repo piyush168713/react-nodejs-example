@@ -1,3 +1,6 @@
+# Run Docker image to AWS EC2 Instance
+
+
 ## Push image to Private Repository (Docker Hub)
 
 ### Login to docker hub
@@ -23,4 +26,48 @@
 ### Push image to Docker Hub
 ```sh
   docker push username/repo-name:6.0
+```
+
+
+### Login to Remote host (EC2 Instance)
+```sh
+  ssh -i ~/private-keys.pem ec2-user@public-ip
+```
+
+### Install Docker on EC2 server
+```sh
+  sudo yum install docker
+```
+
+### Start Docker Daemon
+```sh
+  sudo service docker start
+```
+
+### Add ec2-user to docker group
+```sh
+  sudo usermod -aG docker $USER
+```
+
+### Login to Docker Hub
+```sh
+  docker login
+```
+
+### Pull the image from Private Repository
+```sh
+  docker pull username/repo-name:6.0
+```
+
+### Run the Docker image
+```sh
+  docker run -d -p 3000:80 username/repo-name:6.0
+```
+
+Now open the port 3000 from EC2 instance inbound rule
+
+Go to Browser
+Type
+```sh
+  public-ip:3000
 ```
