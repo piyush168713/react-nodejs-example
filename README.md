@@ -64,10 +64,9 @@
   docker run -d -p 3000:80 username/repo-name:6.0
 ```
 
-Now open the port 3000 from EC2 instance inbound rule
+Now open the port 3000 from EC2 instance inbound rule.
 
-Go to Browser
-Type
+Go to Browser and Type
 ```sh
   public-ip:3000
 ```
