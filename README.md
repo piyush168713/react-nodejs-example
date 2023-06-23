@@ -8,7 +8,7 @@
   docker login
 ```
 
-<h3>Create Docker image locally</h3>
+#### Create Docker image locally
 ```sh
   docker build -t 6.0 .
 ```
