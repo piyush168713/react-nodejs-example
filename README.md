@@ -1,9 +1,9 @@
 # Run Docker image to AWS EC2 Instance
 
 
-## Push image to Private Repository (Docker Hub)
+### Push image to Private Repository (Docker Hub)
 
-### Login to docker hub
+#### Login to docker hub
 ```sh
   docker login
 ```
@@ -13,53 +13,53 @@
   docker build -t 6.0 .
 ```
 
-### Tag the image
+#### Tag the image
 ```sh
   docker tag 6.0:latest username/repo-name:6.0
 ```
 
-### Check the Docker image locally
+#### Check the Docker image locally
 ```sh
   docker images
 ```
 
-### Push image to Docker Hub
+#### Push image to Docker Hub
 ```sh
   docker push username/repo-name:6.0
 ```
 
 
-### Login to Remote host (EC2 Instance)
+#### Login to Remote host (EC2 Instance)
 ```sh
   ssh -i ~/private-keys.pem ec2-user@public-ip
 ```
 
-### Install Docker on EC2 server
+#### Install Docker on EC2 server
 ```sh
   sudo yum install docker
 ```
 
-### Start Docker Daemon
+#### Start Docker Daemon
 ```sh
   sudo service docker start
 ```
 
-### Add ec2-user to docker group
+#### Add ec2-user to docker group
 ```sh
   sudo usermod -aG docker $USER
 ```
 
-### Login to Docker Hub
+#### Login to Docker Hub
 ```sh
   docker login
 ```
 
-### Pull the image from Private Repository
+#### Pull the image from Private Repository
 ```sh
   docker pull username/repo-name:6.0
 ```
 
-### Run the Docker image
+#### Run the Docker image
 ```sh
   docker run -d -p 3000:80 username/repo-name:6.0
 ```
